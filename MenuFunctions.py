@@ -1,6 +1,7 @@
 # DO NOT FORGET TO PROMPT THE USER FOR QUESTIONS this is a CLI program remember.
 
 
+# RERUN THIS FUNCTION AND FIX THE TRY/EXCEPT
 def add_habit():
 
     print('You picked "Add Habit"\n')
