@@ -1,3 +1,4 @@
+from MenuFunctions import add_habit
 # This will be our main file
 
 def main():
@@ -21,8 +22,9 @@ def main():
             continue
 
         match menu_options:
-            case 1:
+            case 1: 
                 add_habit()
+            
             case 2:
                 habit_tracker()
             case 3:
