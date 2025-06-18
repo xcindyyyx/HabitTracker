@@ -34,6 +34,33 @@ def add_habit():
     return habit, habit_number
     
 def habit_tracker():
-    pass
+    # print('You picked "View Today\'s Habit"')
+    # print()
+    # print("Progress Menu")
+    # print("1. View Name of Habit")
+    # print("2. View Current Progress")
+
+    # while True:
+    #     try:
+    #         progress_menu = int(input("Enter a number 1-2: "))                          
+    #     except ValueError:
+    #         print("Please enter a number")
+    #         print()
+    #     else:
+    #         match progress_menu:
+    #             case 1: 
+    #                 add_habit(habit)
+    #             case 2:
+    #                 i=0
+    #                 for i in habit_number:
+    #                     print(habit_number)
+    #             case _:
+    #                 print("Please enter a number")
+
+
+    # return progress_menu      
+    pass   
+
+
     # You will write all the habits necessities here
 
