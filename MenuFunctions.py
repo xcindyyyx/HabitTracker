@@ -1,7 +1,5 @@
 # DO NOT FORGET TO PROMPT THE USER FOR QUESTIONS this is a CLI program remember.
 
-
-# RERUN THIS FUNCTION AND FIX THE TRY/EXCEPT!
 def add_habit():
 
     print('You picked "Add Habit"\n')
@@ -12,25 +10,27 @@ def add_habit():
 
             # Remove space and check if only letters are left
             if habit.replace(" ", "").isalpha():
-                break       
+                break                            # Exit the loop
             else:
                 raise ValueError                 # This triggers except    
 
         except ValueError:
             print("Please enter only letters and spaces. No numbers or symbols.")
             print()
-            return                               # Exit the function
+            continue                             # Ask user to enter the habit again
 
-    # try:
-    #     habit_number = int(input("Number of times this habit will be done: "))
-    #  except ValueError:
-    #     print("Please enter a number")
-    #     print()
-    #     return                              # Exit the function
+    while True:
+        try:
+            habit_number = int(input("Number of times this habit will be done: "))
+            break                               # Exit the loop
+        except ValueError:
+            print("Please enter a number")
+            print()
+            continue                            # Ask the user the number of times the habit will be done again
 
-    # print()
-    # print(f"Your habit for today {habit} and it'll be done {habit_number} times")
-    # print()
+    print()
+    print(f"Your habit for today {habit} and it'll be done {habit_number} times")
+    print()
     return habit, habit_number
     
 def habit_tracker():

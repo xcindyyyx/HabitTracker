@@ -34,13 +34,6 @@ def main():
                 print("Please enter a number 1-3")
                 print()
 
-   
-    # Loop Menu Options
-
-    # Call MenuFunctions 
-
-
-
 # Do __name___ = "__main__" and call main() function (So program will be ran through this file)
 if __name__ == "__main__":
     main()
