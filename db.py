@@ -1,15 +1,15 @@
 import sqlite3
 
 # Connect to the databse (or create it)
-def connect()
+def connect():
     return sqlite3.connect("habit_tracker.db")
 
-def create_table(conn)
+def create_table(conn):
     # Create a cursor to interact with the DB
     cur = conn.cursor()
 
     # Create users table
-    cur.execute = ("""
+    cur.execute("""
     CREATE TABLE IF NOT EXISTS users(
         user_id INTEGER UNIQUE PRIMARY KEY,
         first_name TEXT,
@@ -17,7 +17,7 @@ def create_table(conn)
     """)
 
     # Create habits table (Foreign key will be here)
-    cur.execute = ("""
+    cur.execute("""
         CREATE TABLE IF NOT EXISTS habits(
             habit_id INTEGER PRIMARY KEY,
             habit_name TEXT,

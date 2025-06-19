@@ -1,4 +1,5 @@
 from MenuFunctions import add_habit
+from db import connect, create_table
 
 conn = connect()
 create_table(conn)
