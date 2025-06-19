@@ -21,9 +21,9 @@ def main():
         print()
         
         try:
-            menu_options = int(input("Enter a number 1-3: "))
+            menu_options = int(input("Enter a number 1-5: "))
         except ValueError:
-            print("Please enter a number 1-3")
+            print("Please enter a number 1-5")
             print()
             continue
 
@@ -40,7 +40,7 @@ def main():
                 print("\nGoodbye!", end="")
                 break
             case _: 
-                print("Please enter a number 1-3")
+                print("Please enter a number 1-5")
                 print()
 
 # Do __name___ = "__main__" and call main() function (So program will be ran through this file)
