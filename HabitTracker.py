@@ -1,5 +1,7 @@
 from MenuFunctions import add_habit
-# This will be our main file
+
+conn = connect()
+create_table(conn)
 
 def main():
     # Show Menu
