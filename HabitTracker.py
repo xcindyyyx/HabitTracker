@@ -11,9 +11,12 @@ def main():
         print()
 
         print("Menu: ")
-        print("1) Add Habit")
-        print("2) View Today's Habit")
-        print("3) Exit")
+        print("1) Register New User")
+        # For two and three prompt the user to enter their ID
+        print("2) Add Habit (for existing user)")
+        print("3) View Today's Habit")
+        print("4) View All Users")
+        print("5) Exit")
 
         print()
         
@@ -25,12 +28,15 @@ def main():
             continue
 
         match menu_options:
-            case 1: 
-                add_habit()
-            
+            case 1:
+                new_user()
             case 2:
+                add_habit()
+            case 3: 
                 habit_tracker()
-            case 3:
+            case 4:
+                view_users()
+            case 5:
                 print("\nGoodbye!", end="")
                 break
             case _: 

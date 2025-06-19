@@ -13,7 +13,8 @@ def create_table(conn):
     CREATE TABLE IF NOT EXISTS users(
         user_id INTEGER UNIQUE PRIMARY KEY,
         first_name TEXT,
-        last_name TEXT)
+        last_name TEXT,
+        email TEXT)
     """)
 
     # Create habits table (Foreign key will be here)
