@@ -1,5 +1,5 @@
 # DO NOT FORGET TO PROMPT THE USER FOR QUESTIONS this is a CLI program remember.
-def new_user:
+def new_user():
     pass
 
 def add_habit():
@@ -63,7 +63,7 @@ def habit_tracker():
     # return progress_menu      
     pass   
 
-    def view_users:
+    def view_users():
         pass
 
 
