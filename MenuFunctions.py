@@ -48,10 +48,12 @@ def add_habit():
     
     while True:
         try:
-            habit = input("Enter the habit: ")
-            # cursor.execute("INSERT INTO habits (habit_name, user_id) VALUES (?, ?)", (habit_name, user_id))
+            habit_name = input("Enter the habit: ")
+            cursor.execute("INSERT INTO habits (habit_name, user_id) VALUES (?, ?)", (habit_name, user_id))
+            conn.commit()
+
             # Remove space and check if only letters are left
-            if habit.replace(" ", "").isalpha():
+            if habit_name.replace(" ", "").isalpha():
                 break                            # Exit the loop
             else:
                 raise ValueError                 # This triggers except    
@@ -71,9 +73,9 @@ def add_habit():
             continue                            # Ask the user the number of times the habit will be done again
 
     print()
-    print(f"Your habit for today {habit} and it'll be done {habit_number} times")
+    print(f"Your habit for today {habit_name} and it'll be done {habit_number} times")
     print()
-    return habit, habit_number
+    return habit_name, habit_number
     
 def habit_tracker():
     # print('You picked "View Today\'s Habit"')

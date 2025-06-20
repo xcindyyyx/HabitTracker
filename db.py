@@ -19,7 +19,7 @@ def create_table(conn):
     # Create habits table (Foreign key will be here)
     cur.execute("""
         CREATE TABLE IF NOT EXISTS habits(
-            habit_id INTEGER PRIMARY KEY,
+            habit_id INTEGER PRIMARY KEY AUTOINCREMENT,
             habit_name TEXT,
             user_id INTEGER,
             FOREIGN KEY(user_id) REFERENCES users(user_id))
