@@ -1,6 +1,5 @@
 import sqlite3
-from db import connect
-
+from db import connect, create_table
 
 # DO NOT FORGET TO PROMPT THE USER FOR QUESTIONS this is a CLI program remember.
 def new_user():
@@ -8,20 +7,21 @@ def new_user():
     print()
     print("Please enter your first name and last name")
 
-    first_name = input("First Name: ")       
-    last_name = input("Last Name: ")   
-
     # Once we have input connect to db
     conn = connect()
     cursor = conn.cursor()
 
-    cursor.execute("INSERT INTO users (first_name, last_name) VALUES (?, ?)")
+    first_name = input("First Name: ")       
+    last_name = input("Last Name: ")   
+
+    cursor.execute("INSERT INTO users (first_name, last_name) VALUES (?, ?)", (first_name, last_name))
     user_id = cursor.lastrowid # Get the user_id that was created
     
     conn.commit()
     conn.close()
 
     print(f"Welcome {first_name} {last_name}! Your user ID is {user_id}")
+    print()
     return user_id  # Allows user_id to be used in other parts of the program
 
 def add_habit():
