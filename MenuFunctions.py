@@ -27,11 +27,23 @@ def new_user():
 def add_habit():
 
     print('You picked "Add Habit"\n')
+
+    conn = connect()
+    cursor = conn.cursor()
+
+    user_id = input("User ID: ")
+    cursor.execute("SELECT * FROM users WHERE user_id = ?", (user_id,))
+    user = cursor.fetchone()
+
+    if user is None:
+        print("User ID does not exist")
+        conn.close()
+        return
     
     while True:
         try:
             habit = input("Enter the habit: ")
-
+            # cursor.execute("INSERT INTO habits (habit_name, user_id) VALUES (?, ?)", (habit_name, user_id))
             # Remove space and check if only letters are left
             if habit.replace(" ", "").isalpha():
                 break                            # Exit the loop
