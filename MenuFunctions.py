@@ -31,13 +31,20 @@ def add_habit():
     cursor = conn.cursor()
 
     user_id = input("User ID: ")
+
     cursor.execute("SELECT * FROM users WHERE user_id = ?", (user_id,))
     user = cursor.fetchone()
 
     if user is None:
-        print("User ID does not exist")
+        print("User ID does not exist\n")
         conn.close()
-        return
+        return                  # Exit the function
+    else: 
+        # Welcome the user
+        print()
+        first_name = user[1]   # Gets the 2nd item from the tuple
+        last_name = user[2]     # Gets the 3rd item from the tuple
+        print(f"Welcome, {first_name} {last_name}!")
     
     while True:
         try:
