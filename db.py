@@ -11,7 +11,7 @@ def create_table(conn):
     # Create users table
     cur.execute("""
     CREATE TABLE IF NOT EXISTS users(
-        user_id INTEGER UNIQUE PRIMARY KEY,
+        user_id INTEGER UNIQUE PRIMARY KEY AUTOINCREMENT,
         first_name TEXT,
         last_name TEXT,
     """)
