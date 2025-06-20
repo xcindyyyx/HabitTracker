@@ -1,4 +1,4 @@
-from MenuFunctions import new_user, add_habit
+from MenuFunctions import new_user, add_habit, view_users
 from db import connect, create_table
 
 conn = connect()

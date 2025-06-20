@@ -1,7 +1,6 @@
 import sqlite3
 from db import connect, create_table
 
-# DO NOT FORGET TO PROMPT THE USER FOR QUESTIONS this is a CLI program remember.
 def new_user():
     print("Welcome to Habit Tracker")
     print()
@@ -25,7 +24,7 @@ def new_user():
     return user_id  # Allows user_id to be used in other parts of the program
 
 def add_habit():
-
+    
     print('You picked "Add Habit"\n')
 
     conn = connect()
@@ -97,9 +96,21 @@ def habit_tracker():
     # return progress_menu      
     pass   
 
-    def view_users():
-        pass
+def view_users():
+    conn = connect()
+    cursor = conn.cursor()
 
+    # Get all users
+    cursor.execute("SELECT * FROM users")
+    rows = cursor.fetchall()
 
-    # You will write all the habits necessities here
+    if rows:
+        print("\nAll Users: ")
+        for row in rows:
+            print(row)
+            print()
+    else: 
+        print("No users found")
+
+    conn.close()
 
