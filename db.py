@@ -8,6 +8,9 @@ def create_table(conn):
     # Create a cursor to interact with the DB
     cur = conn.cursor()
 
+    # cur.execute("DROP TABLE IF EXISTS users")
+    # cur.execute("DROP TABLE IF EXISTS habits")
+
     # Create users table
     cur.execute("""
     CREATE TABLE IF NOT EXISTS users(
@@ -16,7 +19,7 @@ def create_table(conn):
         last_name TEXT)
     """)
 
-    # Create habits table (Foreign key will be here)
+   # Create habits table (Foreign key will be here)
     cur.execute("""
         CREATE TABLE IF NOT EXISTS habits(
             habit_id INTEGER PRIMARY KEY AUTOINCREMENT,

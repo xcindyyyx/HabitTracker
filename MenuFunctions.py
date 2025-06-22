@@ -37,14 +37,12 @@ def add_habit():
 
     if user is None:
         print("User ID does not exist\n")
-        conn.close()
         return                  # Exit the function
     else: 
         # Welcome the user
-        print()
         first_name = user[1]    # Gets the 2nd item from the tuple
         last_name = user[2]     # Gets the 3rd item from the tuple
-        print(f"Welcome, {first_name} {last_name}!")
+        print(f"Welcome, {first_name} {last_name}!\n")
     
     while True:
         try:
@@ -66,12 +64,15 @@ def add_habit():
     while True:
         try:
             habit_number = int(input("Number of times this habit will be done: "))
+            cursor.execute("INSERT INTO habits (habit_number, user_id) VALUES (?, ?)", (habit_number, user_id))
+            conn.commit()
             break                               # Exit the loop
         except ValueError:
             print("Please enter a number")
             print()
             continue                            # Ask the user the number of times the habit will be done again
 
+    conn.close()
     print()
     print(f"Your habit for today {habit_name} and it'll be done {habit_number} times")
     print()
@@ -119,7 +120,7 @@ def view_users():
             print(row)
             print()
     else: 
-        print("No users found")
+        print("No users found\n")
 
     conn.close()
 
