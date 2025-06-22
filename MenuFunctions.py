@@ -47,8 +47,6 @@ def add_habit():
     while True:
         try:
             habit_name = input("Enter the habit: ")
-            cursor.execute("INSERT INTO habits (habit_name, user_id) VALUES (?, ?)", (habit_name, user_id))
-            conn.commit()
 
             # Remove space and check if only letters are left
             if habit_name.replace(" ", "").isalpha():
@@ -64,15 +62,16 @@ def add_habit():
     while True:
         try:
             habit_number = int(input("Number of times this habit will be done: "))
-            cursor.execute("INSERT INTO habits (habit_number, user_id) VALUES (?, ?)", (habit_number, user_id))
-            conn.commit()
             break                               # Exit the loop
         except ValueError:
             print("Please enter a number")
             print()
             continue                            # Ask the user the number of times the habit will be done again
 
+    cursor.execute("INSERT INTO habits (habit_name, habit_number, user_id) VALUES (?, ?, ?)", (habit_name, habit_number, user_id,))
+    conn.commit()
     conn.close()
+
     print()
     print(f"Your habit for today {habit_name} and it'll be done {habit_number} times")
     print()
@@ -108,7 +107,8 @@ def habit_tracker():
     else:
         for habit in habits:
             print(f"Habit: {habit[0]}")
-            print(f"Number of times: {habit[1]}")   
+            print(f"Number of times: {habit[1]}") 
+            print()  
 
 def view_users():
     conn = connect()
@@ -119,7 +119,8 @@ def view_users():
     rows = cursor.fetchall()
 
     if rows:
-        print("\nAll Users: ")
+        print("\nAll Users ")
+        print("----------")
         for row in rows:
             print(row)
             print()
