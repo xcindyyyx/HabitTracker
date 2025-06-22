@@ -79,32 +79,36 @@ def add_habit():
     return habit_name, habit_number
     
 def habit_tracker():
-    # print('You picked "View Today\'s Habit"')
-    # print()
-    # print("Progress Menu")
-    # print("1. View Name of Habit")
-    # print("2. View Current Progress")
+    print('You picked "View Today\'s Habit"')
+    print()
 
-    # while True:
-    #     try:
-    #         progress_menu = int(input("Enter a number 1-2: "))                          
-    #     except ValueError:
-    #         print("Please enter a number")
-    #         print()
-    #     else:
-    #         match progress_menu:
-    #             case 1: 
-    #                 add_habit(habit)
-    #             case 2:
-    #                 i=0
-    #                 for i in habit_number:
-    #                     print(habit_number)
-    #             case _:
-    #                 print("Please enter a number")
+    conn = connect()
+    cursor = conn.cursor()
 
+    user_id = input("User ID: ")
+    
+    cursor.execute("SELECT * FROM users WHERE user_id = ?", (user_id,))
+    user = cursor.fetchone()
 
-    # return progress_menu      
-    pass   
+    if user is None:
+        print("User ID does not exist\n")
+        return                  # Exit the function
+    else: 
+        # Welcome the user
+        first_name = user[1]    # Gets the 2nd item from the tuple
+        last_name = user[2]     # Gets the 3rd item from the tuple
+        print(f"Welcome, {first_name} {last_name}!\n")
+    
+    # Get all habits that the user has
+    cursor.execute("SELECT habit_name, habit_number FROM habits WHERE user_id = ?", (user_id,))
+    habits = cursor.fetchall()
+
+    if not habits:
+        print("No habits were found for that user.")
+    else:
+        for habit in habits:
+            print(f"Habit: {habit[0]}")
+            print(f"Number of times: {habit[1]}")   
 
 def view_users():
     conn = connect()
