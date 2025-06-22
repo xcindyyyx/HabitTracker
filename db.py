@@ -8,6 +8,7 @@ def create_table(conn):
     # Create a cursor to interact with the DB
     cur = conn.cursor()
 
+    # WARNING: Uncommenting the two lines below will permanently DELETE ALL DATA
     # cur.execute("DROP TABLE IF EXISTS users")
     # cur.execute("DROP TABLE IF EXISTS habits")
 

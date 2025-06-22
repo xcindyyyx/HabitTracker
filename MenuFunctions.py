@@ -1,3 +1,5 @@
+# TODO: Test edge cases on every function! 
+
 import sqlite3
 from db import connect, create_table
 
