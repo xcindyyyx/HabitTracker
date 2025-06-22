@@ -42,7 +42,7 @@ def add_habit():
     else: 
         # Welcome the user
         print()
-        first_name = user[1]   # Gets the 2nd item from the tuple
+        first_name = user[1]    # Gets the 2nd item from the tuple
         last_name = user[2]     # Gets the 3rd item from the tuple
         print(f"Welcome, {first_name} {last_name}!")
     
