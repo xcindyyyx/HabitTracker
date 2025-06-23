@@ -5,7 +5,7 @@ def connect():
     return sqlite3.connect("habit_tracker.db")
 
 def create_table(conn):
-    # Create a cursor to interact with the DB
+    # Create a cursor to interact with the database
     cur = conn.cursor()
 
     # WARNING: Uncommenting the two lines below will permanently DELETE ALL DATA

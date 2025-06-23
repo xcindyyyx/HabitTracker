@@ -6,7 +6,7 @@ def new_user():
     print()
     print("Please enter your first name and last name")
 
-    # Once we have input connect to db
+    # Once we have input connect to database
     conn = connect()
     cursor = conn.cursor()
 
@@ -23,7 +23,7 @@ def new_user():
         except ValueError:
             print("Please enter only letters and spaces. No numbers or symbols.")
             print()
-            continue                             # Ask user to enter the first name again    
+            continue                             # Ask user to enter first name again    
 
     while True:
         try:
@@ -38,7 +38,7 @@ def new_user():
         except ValueError:
             print("Please enter only letters and spaces. No numbers or symbols.")
             print()
-            continue                             # Ask user to enter the last name again    
+            continue                             # Ask user to enter last name again    
 
     cursor.execute("INSERT INTO users (first_name, last_name) VALUES (?, ?)", (first_name, last_name))
     user_id = cursor.lastrowid # Get the user_id that was created
@@ -91,7 +91,7 @@ def add_habit():
         except ValueError:
             print("Please enter a number")
             print()
-            continue                            # Ask the user the number of times the habit will be done again
+            continue                            # Ask the user for habit number again
 
     cursor.execute("INSERT INTO habits (habit_name, habit_number, user_id) VALUES (?, ?, ?)", (habit_name, habit_number, user_id,))
     conn.commit()

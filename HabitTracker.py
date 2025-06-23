@@ -1,6 +1,7 @@
 from MenuFunctions import new_user, add_habit, habit_tracker, view_users
 from db import connect, create_table
 
+# Connect to database and create the table if it doesn't exist
 conn = connect()
 create_table(conn)
 
@@ -12,7 +13,6 @@ def main():
 
         print("Menu: ")
         print("1) Register New User")
-        # For two and three prompt the user to enter their ID
         print("2) Add Habit (for existing user)")
         print("3) View Today's Habit")
         print("4) View All Users")
@@ -43,6 +43,6 @@ def main():
                 print("Please enter a number 1-5")
                 print()
 
-# Do __name___ = "__main__" and call main() function (So program will be ran through this file)
+# Start program if run directly
 if __name__ == "__main__":
     main()
