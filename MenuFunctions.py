@@ -1,5 +1,3 @@
-# TODO: Test edge cases on every function! 
-
 import sqlite3
 from db import connect, create_table
 
@@ -53,7 +51,6 @@ def new_user():
     return user_id  # Allows user_id to be used in other parts of the program
 
 def add_habit():
-    
     print('You picked "Add Habit"\n')
 
     conn = connect()
