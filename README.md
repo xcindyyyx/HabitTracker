@@ -48,6 +48,7 @@ Menu:
 
 ## Example Pseudocode Snippet (from Notion)
 
+```text
 If input is valid: 
 Enter a number 1-5: INT
 
@@ -60,28 +61,28 @@ Welcome to Habit Tracker
 Please enter your first name and last name
 
 First Name: STRING
-
 If input is valid: continue
-If input is invalid: Repromt the user to enter  first_name
+If input is invalid: Repromt the user to enter first_name
 
 Last Name: STRING
-
 If input is valid: continue
 If input is invalid: Repromt the user to enter last_name
 
 SQL assigns user ID
 Output: Welcome first_name last_name! Your user ID is 5.
-
+```
 
 ## Warning
 Inside 'db.py' file, you'll see two lines:
+```text
 cur.execute("DROP TABLE IF EXISTS users")
 cur.execute("DROP TABLE IF EXISTS habits")
-
+```
 These will delete ALL data from your database.
 Only uncomment if you want to completely reset users and habits table.
 Once you uncomment and run the file, everything will be gone.
 
 ## How to Run
-Python must be installed. Run program in a terminal:
+1. Python must be installed 
+2. Run program in a terminal:
 python HabitTracker.py
