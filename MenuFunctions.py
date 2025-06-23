@@ -12,8 +12,35 @@ def new_user():
     conn = connect()
     cursor = conn.cursor()
 
-    first_name = input("First Name: ")       
-    last_name = input("Last Name: ")   
+    while True:
+        try:
+            first_name = input("First Name: ").strip()
+            # If output is True capitalize first letter
+            if first_name.isalpha():
+                first_name = first_name.capitalize()
+                break                            # Exit the loop
+            else:
+                raise ValueError                 # This triggers except    
+
+        except ValueError:
+            print("Please enter only letters and spaces. No numbers or symbols.")
+            print()
+            continue                             # Ask user to enter the first name again    
+
+    while True:
+        try:
+            last_name = input("Last Name: ").strip()
+            # If output is True capitalize first letter
+            if last_name.isalpha():
+                last_name = last_name.capitalize()
+                break                            # Exit the loop
+            else:
+                raise ValueError                 # This triggers except    
+
+        except ValueError:
+            print("Please enter only letters and spaces. No numbers or symbols.")
+            print()
+            continue                             # Ask user to enter the first name again    
 
     cursor.execute("INSERT INTO users (first_name, last_name) VALUES (?, ?)", (first_name, last_name))
     user_id = cursor.lastrowid # Get the user_id that was created
