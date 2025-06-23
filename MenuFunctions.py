@@ -40,7 +40,7 @@ def new_user():
         except ValueError:
             print("Please enter only letters and spaces. No numbers or symbols.")
             print()
-            continue                             # Ask user to enter the first name again    
+            continue                             # Ask user to enter the last name again    
 
     cursor.execute("INSERT INTO users (first_name, last_name) VALUES (?, ?)", (first_name, last_name))
     user_id = cursor.lastrowid # Get the user_id that was created
@@ -102,7 +102,7 @@ def add_habit():
     conn.close()
 
     print()
-    print(f"Your habit for today {habit_name} and it'll be done {habit_number} times")
+    print(f"Your habit for today is: {habit_name}. You'll do it {habit_number} times today.")
     print()
     return habit_name, habit_number
     
