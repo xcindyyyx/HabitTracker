@@ -75,8 +75,7 @@ def add_habit():
     
     while True:
         try:
-            habit_name = input("Enter the habit: ")
-
+            habit_name = input("Enter the habit: ").strip()
             # Remove space and check if only letters are left
             if habit_name.replace(" ", "").isalpha():
                 break                            # Exit the loop
